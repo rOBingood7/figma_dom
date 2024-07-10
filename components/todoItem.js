@@ -8,7 +8,7 @@ export function todoItem(item, idx, arr) {
     const del = document.createElement('button')
 
     
-    number.innerHTML = (idx + 1)
+    number.innerHTML = idx + 1
     name.innerHTML = item.name
     year.innerHTML = item.age
     actions.classList.add("actions")
@@ -19,52 +19,59 @@ export function todoItem(item, idx, arr) {
     actions.append(edit, del)
 
     del.onclick = () => {
-        const forSure = confirm('Are you sure?')
-
-        if(forSure === true) {
-            arr.splice(idx, 1)
-            tr.remove()
-        }
-
+        arr.splice(idx, 1)
+        tr.remove()  
     }
 
     const close = document.querySelector('.close')
     const dialog = document.querySelector('dialog')
+    const modal_form = document.forms.namedItem("changeItem");
+    const modal_name = document.querySelector("#modal_name");
+    const modal_age = document.querySelector("#modal_age");
+
+    modal_name.value = item.name
+    modal_age.value = item.age
     
     edit.onclick = () => {
         dialog.showModal()
 
         openAndSave(item)
+        function openAndSave(item) {
+            
+            modal_form.onsubmit = (e) => {
+                e.preventDefault();
+                
+               let newName = new FormData(e.target).get('modal_name')
+               let newAge = new FormData(e.target).get('modal_age')
+               let this_year = new Date().getFullYear()
+               if(newAge>=0) {
+                let user_year = this_year - newAge
+           
+                if(user_year >= 0 && user_year<=this_year) {
+                       
+                item.name = newName
+                item.age = newAge
 
-
-    }
+                name.innerHTML = newName
+                year.innerHTML = newAge
+               
+                
+                e.target.reset();
+                dialog.close();
+            } else {
+                alert('error')
+            }
+        } else {
+            alert('error')
+        }
+        
+    };
+}
+}
 
     close.onclick = () => {
         dialog.close()
     }
 
     return tr
-
-    
-}
-
-function openAndSave(item) {
-    const form = document.forms.namedItem("changeItem");
-    
-    form.onsubmit = (e) => {
-        e.preventDefault();
-        
-        const newName = new FormData(e.target).get('name');
-        const newAge = new FormData(e.target).get('age');
-        
-        item.name = newName;
-        item.age = newAge;
-    
-        
-        name.innerHTML = newName;
-        age.innerHTML = newAge;
-        
-        e.target.reset();
-        dialog.close();
-    };
 }

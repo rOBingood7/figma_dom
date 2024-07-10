@@ -76,8 +76,8 @@ tr:hover {
 }
 
 .edit {
-    background: url(./img/pencil-icon_609277-2235.jpg) no-repeat center center;
-    width: 50px;
+    background: url(./img/edit\ \(1\).svg) no-repeat center center;
+    width: 20px;
     height: 50px;
     border: none;
     background-size: cover;
@@ -85,8 +85,8 @@ tr:hover {
 }
 
 .delete {
-    background: url(./img/trash-can-icon_628407-1443.jpg) no-repeat center center;
-    width: 50px;
+    background: url(./img/trash-2.svg) no-repeat center center;
+    width: 10px;
     height: 50px;
     border: none;
     background-size: cover;

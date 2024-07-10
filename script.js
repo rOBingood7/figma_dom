@@ -10,14 +10,26 @@ const form = document.querySelector('.form-container form')
 form.onsubmit = (e) => {
     e.preventDefault()
 
+    let year_birth = new FormData(e.target).get('age')
+    let name =  new FormData(e.target).get('name')
+    let this_year = new Date().getFullYear()
     
-    const todo = {
-        name: new FormData(e.target).get('name'),
-        age: new Date().getFullYear() - new FormData(e.target).get('age')
-    }
+    if(year_birth>=0) {
+        let user_year =  this_year - year_birth
 
-    items.push(todo)
-    reload(items, todoItem, tbody);
+        if(user_year >= 0 && user_year<=this_year) {
+            const todo = {
+                name: name,
+                age: user_year
+            }
+            items.push(todo)
+            reload(items, todoItem, tbody);
+        } else {
+            alert('error')
+        }
+    } else {
+        alert('error')
+    }
 }
 
 
