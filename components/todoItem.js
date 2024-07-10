@@ -26,15 +26,17 @@ export function todoItem(item, idx, arr) {
     const close = document.querySelector('.close')
     const dialog = document.querySelector('dialog')
     const modal_form = document.forms.namedItem("changeItem");
-    const modal_name = document.querySelector("#modal_name");
-    const modal_age = document.querySelector("#modal_age");
-
-    modal_name.value = item.name
-    modal_age.value = item.age
+    
     
     edit.onclick = () => {
         dialog.showModal()
 
+        const modal_name = document.querySelector("#modal_name");
+        const modal_age = document.querySelector("#modal_age");
+
+        modal_name.value = item.name
+        modal_age.value = item.age
+        
         openAndSave(item)
         function openAndSave(item) {
             
@@ -44,6 +46,7 @@ export function todoItem(item, idx, arr) {
                let newName = new FormData(e.target).get('modal_name')
                let newAge = new FormData(e.target).get('modal_age')
                let this_year = new Date().getFullYear()
+               
                if(newAge>=0) {
                 let user_year = this_year - newAge
            
