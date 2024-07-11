@@ -5,7 +5,7 @@ import { todoItem } from "./components/todoItem.js"
 
 
 const tbody = document.querySelector('table tbody')
-const form = document.querySelector('.form-container form')
+const form = document.querySelector('.form')
 
 form.onsubmit = (e) => {
     e.preventDefault()

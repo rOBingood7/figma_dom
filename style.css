@@ -4,44 +4,50 @@
     box-sizing: border-box;
 }
 
-.body {
-    margin: 0 auto;
-    padding: 40px;
-
+.container {
+    max-width: 1200px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
 }
 
-.body h1 {
-    text-transform: uppercase;
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 
-.form-container {
-    max-width: 300px;
-    padding: 40px;
-}
-.form-container form {
-    display: flex;
-    gap: 40px;
+.form {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 
-input {
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+.form label {
+	margin-right: 10px;
+	line-height: 2;
 }
-button {
-    width: 100%;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 10px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+
+.form input {
+	margin-right: 10px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
-button:hover {
-    background-color: #0056b3;
+
+.form button {
+	padding: 5px 15px;
+	background-color: #007bff;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.form button:hover {
+	background-color: #0056b3;
 }
 
 table {
@@ -65,32 +71,32 @@ tr:hover {
     display: flex;
     gap: 10px;
 }
-.actions i {
+.actions button {
     cursor: pointer;
     padding: 5px;
     border-radius: 3px;
     transition: background-color 0.3s;
 }
-.actions i:hover {
+.actions button:hover {
     background-color: #ddd;
 }
 
 .edit {
     background: url(./img/edit\ \(1\).svg) no-repeat center center;
-    width: 20px;
-    height: 50px;
-    border: none;
-    background-size: cover;
-    cursor: pointer;
+    display: block;
+	width: 24px;
+	height: 24px;
+	background-size: cover;
+	cursor: pointer;    
 }
 
 .delete {
     background: url(./img/trash-2.svg) no-repeat center center;
-    width: 10px;
-    height: 50px;
-    border: none;
-    background-size: cover;
-    cursor: pointer; 
+    display: block;
+	width: 24px;
+	height: 24px;
+	background-size: cover;
+	cursor: pointer; 
 }
 
 dialog {
@@ -112,6 +118,52 @@ dialog button {
     height: 40px;
 }
 
+dialog form {
+	display: flex;
+	flex-direction: column;
+}
+
+dialog label {
+	margin-bottom: 5px;
+}
+
+dialog form input {
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+dialog form button {
+	padding: 5px 15px;
+	background-color: #007bff;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+dialog form button:hover {
+	background-color: #0056b3;
+}
+
+
+
+.show {
+	display: block;
+}
+
 .close {
-    width: 100px;
+	color: white;
+	float: right;
+}
+
+.close:hover,
+.close:focus {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
 }

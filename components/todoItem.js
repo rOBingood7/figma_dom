@@ -33,19 +33,19 @@ export function todoItem(item, idx, arr) {
 
         const modal_name = document.querySelector("#modal_name");
         const modal_age = document.querySelector("#modal_age");
-
+        let this_year = new Date().getFullYear()
         modal_name.value = item.name
-        modal_age.value = item.age
-        
+        modal_age.value = this_year - item.age
+
         openAndSave(item)
+  
         function openAndSave(item) {
-            
             modal_form.onsubmit = (e) => {
                 e.preventDefault();
                 
                let newName = new FormData(e.target).get('modal_name')
                let newAge = new FormData(e.target).get('modal_age')
-               let this_year = new Date().getFullYear()
+               
                
                if(newAge>=0) {
                 let user_year = this_year - newAge
@@ -56,7 +56,7 @@ export function todoItem(item, idx, arr) {
                 item.age = newAge
 
                 name.innerHTML = newName
-                year.innerHTML = newAge
+                year.innerHTML = this_year - newAge
                
                 
                 e.target.reset();
